@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.WebAPI\\ArathsBaby.WebAPI.csproj": {}
+    "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.WebAPI\\ArathsBaby.WebAPI.csproj": {}
   },
   "projects": {
-    "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\ArathsBaby.Core.csproj": {
+    "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\ArathsBaby.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\ArathsBaby.Core.csproj",
+        "projectUniqueName": "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\ArathsBaby.Core.csproj",
         "projectName": "ArathsBaby.Core",
-        "projectPath": "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\ArathsBaby.Core.csproj",
+        "projectPath": "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\ArathsBaby.Core.csproj",
         "packagesPath": "C:\\Users\\sergio\\.nuget\\packages\\",
-        "outputPath": "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\obj\\",
+        "outputPath": "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sergio\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -63,14 +63,14 @@
         }
       }
     },
-    "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Infrastructure\\ArathsBaby.Infrastructure.csproj": {
+    "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Infrastructure\\ArathsBaby.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Infrastructure\\ArathsBaby.Infrastructure.csproj",
+        "projectUniqueName": "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Infrastructure\\ArathsBaby.Infrastructure.csproj",
         "projectName": "ArathsBaby.Infrastructure",
-        "projectPath": "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Infrastructure\\ArathsBaby.Infrastructure.csproj",
+        "projectPath": "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Infrastructure\\ArathsBaby.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\sergio\\.nuget\\packages\\",
-        "outputPath": "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Infrastructure\\obj\\",
+        "outputPath": "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sergio\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -86,8 +86,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\ArathsBaby.Core.csproj": {
-                "projectPath": "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\ArathsBaby.Core.csproj"
+              "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\ArathsBaby.Core.csproj": {
+                "projectPath": "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\ArathsBaby.Core.csproj"
               }
             }
           }
@@ -136,14 +136,14 @@
         }
       }
     },
-    "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.WebAPI\\ArathsBaby.WebAPI.csproj": {
+    "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.WebAPI\\ArathsBaby.WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.WebAPI\\ArathsBaby.WebAPI.csproj",
+        "projectUniqueName": "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.WebAPI\\ArathsBaby.WebAPI.csproj",
         "projectName": "ArathsBaby.WebAPI",
-        "projectPath": "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.WebAPI\\ArathsBaby.WebAPI.csproj",
+        "projectPath": "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.WebAPI\\ArathsBaby.WebAPI.csproj",
         "packagesPath": "C:\\Users\\sergio\\.nuget\\packages\\",
-        "outputPath": "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.WebAPI\\obj\\",
+        "outputPath": "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sergio\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -159,11 +159,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\ArathsBaby.Core.csproj": {
-                "projectPath": "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\ArathsBaby.Core.csproj"
+              "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\ArathsBaby.Core.csproj": {
+                "projectPath": "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\ArathsBaby.Core.csproj"
               },
-              "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Infrastructure\\ArathsBaby.Infrastructure.csproj": {
-                "projectPath": "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Infrastructure\\ArathsBaby.Infrastructure.csproj"
+              "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Infrastructure\\ArathsBaby.Infrastructure.csproj": {
+                "projectPath": "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Infrastructure\\ArathsBaby.Infrastructure.csproj"
               }
             }
           }

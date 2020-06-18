@@ -1,0 +1,11 @@
+C:\xampp\htdocs\reset\backend\ArathsBaby.Infrastructure\bin\Debug\netstandard2.0\ArathsBaby.Infrastructure.deps.json
+C:\xampp\htdocs\reset\backend\ArathsBaby.Infrastructure\bin\Debug\netstandard2.0\ArathsBaby.Infrastructure.dll
+C:\xampp\htdocs\reset\backend\ArathsBaby.Infrastructure\bin\Debug\netstandard2.0\ArathsBaby.Infrastructure.pdb
+C:\xampp\htdocs\reset\backend\ArathsBaby.Infrastructure\bin\Debug\netstandard2.0\ArathsBaby.Core.dll
+C:\xampp\htdocs\reset\backend\ArathsBaby.Infrastructure\bin\Debug\netstandard2.0\ArathsBaby.Core.pdb
+C:\xampp\htdocs\reset\backend\ArathsBaby.Infrastructure\obj\Debug\netstandard2.0\ArathsBaby.Infrastructure.csprojAssemblyReference.cache
+C:\xampp\htdocs\reset\backend\ArathsBaby.Infrastructure\obj\Debug\netstandard2.0\ArathsBaby.Infrastructure.AssemblyInfoInputs.cache
+C:\xampp\htdocs\reset\backend\ArathsBaby.Infrastructure\obj\Debug\netstandard2.0\ArathsBaby.Infrastructure.AssemblyInfo.cs
+C:\xampp\htdocs\reset\backend\ArathsBaby.Infrastructure\obj\Debug\netstandard2.0\ArathsBaby.Infrastructure.csproj.CopyComplete
+C:\xampp\htdocs\reset\backend\ArathsBaby.Infrastructure\obj\Debug\netstandard2.0\ArathsBaby.Infrastructure.dll
+C:\xampp\htdocs\reset\backend\ArathsBaby.Infrastructure\obj\Debug\netstandard2.0\ArathsBaby.Infrastructure.pdb
