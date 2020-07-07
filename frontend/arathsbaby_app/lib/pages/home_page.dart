@@ -82,12 +82,10 @@ void switchUser(){
           ],
         ),
         ),
-      body: new Center(
-        
-        
-    ),
-    );
+      body:ProductsPage(),
+       
     
+    );
   }
 }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class ProductsPage extends StatefulWidget {
   @override
@@ -9,61 +10,58 @@ class _ProductsPageState extends State<ProductsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
-          title: new Text("Pruebas"), backgroundColor: Colors.pinkAccent),
+      
       body: Column(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Text(
-              "Bienvenidos",
-              style: TextStyle(
-                color: Colors.pink,
-                fontWeight: FontWeight.w600,
-                fontSize: 20.0,
+            padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
+            child: Container(
+              height: 25.0,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  CategoryItemWidget(
+                    name: "Accesorios",
+                  ),
+                  CategoryItemWidget(
+                    name: "Widgets",
+                  ),
+                  CategoryItemWidget(
+                    name: "Bebes",
+                  ),
+                  CategoryItemWidget(
+                    name: "Mascotas",
+                  ),
+                ],
               ),
             ),
           ),
           Container(
-            height: 75.0,
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 5,
-                itemBuilder: (context, position) {
-                  return Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Container(
-                      width: 100.0,
-                      height: 100.0,
-                      color: Colors.pinkAccent,
-                      child: Text("Posición $position"),
-                    ),
-                  );
-                }),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal:12.0,vertical: 15.0),
-            child: Container(
-              height: 350.0,
-              child:
-                  ListView(scrollDirection: Axis.horizontal, children: <Widget>[
-                PruebaItemWidget(
-                  title: "Mochila",
-                  imagePath: "assets/mochila.jpg",
-                  price: "\$ 150",
-                ),
-                PruebaItemWidget(
-                  title: "Mordedera",
-                  imagePath: "assets/mordedera.jpg",
-                  price: "\$ 100",
-                ),
-                PruebaItemWidget(
-                  title: "Sandalias",
-                  imagePath: "assets/sandalias.jpg",
-                  price: "\$ 50",
-                ),
-              ]),
-            ),
+            height: 477.0,
+            child: ListView(children: <Widget>[
+              PruebaItemWidget(
+                name: "Mochila",
+                price: "\$ 150",
+                imagePath: "assets/mochila.jpg",
+                description: "Mochila de mickey mouse",
+                color: "negro,rojo.blanco",
+              ),
+              PruebaItemWidget(
+                name: "Mordedera",
+                price: "\$ 100",
+                imagePath: "assets/mordedera.jpg",
+                description:
+                    "Mordedera para bebe con mango de agarre especial y comodo para tu bebito xdxd",
+                color: "blanco,azul,rosa",
+              ),
+              PruebaItemWidget(
+                name: "Sandalias",
+                price: "\$ 50",
+                imagePath: "assets/sandalias.jpg",
+                description: "Sandalias para dama",
+                color: "negro,blanco,rojo,azul",
+              ),
+            ]),
           ),
         ],
       ),
@@ -71,54 +69,118 @@ class _ProductsPageState extends State<ProductsPage> {
   }
 }
 
-class PruebaItemWidget extends StatelessWidget {
-  final String title;
-  final String imagePath;
-  final String price;
+class CategoryItemWidget extends StatelessWidget {
+  final String name;
 
-  const PruebaItemWidget({Key key, this.title, this.imagePath, this.price})
+  const CategoryItemWidget({Key key, this.name}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+      child: Container(
+        color: Colors.pinkAccent,
+        height: 25,
+        width: 100,
+        child: Stack(children: <Widget>[
+          Positioned(
+            left: 0,
+            right: 0,
+            top: 5,
+            bottom: 5,
+            child: new Text(
+              name,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        ]),
+      ),
+    );
+  }
+}
+
+class PruebaItemWidget extends StatelessWidget {
+  final String name;
+  final String price;
+  final String imagePath;
+
+  final String description;
+  final String color;
+
+  const PruebaItemWidget(
+      {Key key,
+      this.name,
+      this.price,
+      this.imagePath,
+      this.description,
+      this.color})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 250,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal:0.0,vertical:2.0),
+        padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: .5),
         child: Stack(
           children: <Widget>[
-            Positioned(
-              left: 0,
-              right: 0,
-              top: 0,
-              child: new Text(
-                title,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  letterSpacing: 5,
-                  fontWeight: FontWeight.w700,
+            Align(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
+                child: Text(
+                  name,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: new Text(
-                price,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  letterSpacing: 5,
-                  fontWeight: FontWeight.w700,
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 0.0, vertical: 20.0),
+                child: Text(
+                  price,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w100,
+                  ),
                 ),
               ),
             ),
-            RotatedBox(
-              quarterTurns: 0,
-              child: Center(
-                child: Image.asset(
-                  imagePath,
-                  height: 150.0,
-                  width: 150.0,
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 0.0, vertical: 30.0),
+              child: Image.asset(
+                imagePath,
+                height: 200.0,
+                width: 200.0,
+                alignment: Alignment.bottomLeft,
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                description,
+                style: TextStyle(
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+            ),
+            Divider(),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
+                child: Text(
+                  "Color: $color",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w300,
+                  ),
                 ),
               ),
             ),
