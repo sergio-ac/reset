@@ -58,12 +58,7 @@ void switchUser(){
               },
               
             ),
-            new ListTile(
-              title: new Text("Categorias"),
-              trailing: new Icon(Icons.filter_list),
-                       
-             
-            ),
+           
             new ListTile(
               title: new Text("Pruebas"),
               trailing: new Icon(Icons.new_releases),

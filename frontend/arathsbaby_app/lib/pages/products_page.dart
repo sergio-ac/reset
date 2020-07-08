@@ -10,7 +10,6 @@ class _ProductsPageState extends State<ProductsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: Column(
         children: <Widget>[
           Padding(
@@ -117,75 +116,86 @@ class PruebaItemWidget extends StatelessWidget {
       this.description,
       this.color})
       : super(key: key);
+
+  Widget productImage() {
+    return Container(
+      padding: const EdgeInsetsDirectional.only(start:10,end:25),
+        child: Image.asset(
+      imagePath,
+      height: 200.0,
+      width: 150.0,
+      alignment: Alignment.topLeft,
+    ));
+  }
+
+  Widget textName() {
+    return Container(
+      padding: const EdgeInsetsDirectional.only(bottom:5),
+      child: Text(
+        name,
+        style: TextStyle(
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+    );
+  }
+
+  Widget textPrice() {
+    return Container(
+      padding:const EdgeInsetsDirectional.only(bottom:10),
+      child: Text(
+        price,
+        style: TextStyle(
+          fontWeight: FontWeight.w100,
+        ),
+      ),
+    );
+  }
+
+  Widget textDescription() {
+    return Container(
+      padding: const EdgeInsetsDirectional.only(bottom:10),
+      height: 60,
+      width: 60,
+      child: Text(
+        description,
+        style: TextStyle(
+          fontWeight: FontWeight.w300,
+        ),
+      ),
+    );
+  }
+
+  Widget textColor() {
+    return Container(
+      child: Text(
+        "Color: $color",
+        style: TextStyle(
+          fontWeight: FontWeight.w300,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.only(top: 28),
       height: 250,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: .5),
-        child: Stack(
-          children: <Widget>[
-            Align(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-                child: Text(
-                  name,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.topRight,
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 0.0, vertical: 20.0),
-                child: Text(
-                  price,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w100,
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 0.0, vertical: 30.0),
-              child: Image.asset(
-                imagePath,
-                height: 200.0,
-                width: 200.0,
-                alignment: Alignment.bottomLeft,
-              ),
-            ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                description,
-                style: TextStyle(
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-            ),
-            Divider(),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-                child: Text(
-                  "Color: $color",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w300,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
+      child: Row(
+        children: <Widget>[
+          productImage(),
+          Column(
+      
+            children: <Widget>[
+              
+              textName(),
+              textPrice(),
+              textDescription(),
+              textColor(),
+            ],
+          ),
+        ],
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:arathsbaby_app/pages/home_page.dart';
+import 'package:arathsbaby_app/pages/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -17,7 +18,6 @@ class _LoginPageState extends State<LoginPage> {
     return Padding(
       padding: const EdgeInsets.only(top: 22),
       child: TextFormField(
-        
         decoration: InputDecoration(hintText: 'Correo electrónico'),
       ),
     );
@@ -49,12 +49,22 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget linkRegister() {
     return Container(
-        padding: const EdgeInsets.only(top: 32),
+      padding: const EdgeInsets.only(top: 32),
+      child: InkWell(
         child: Text(
           'Crear una cuenta',
           textAlign: TextAlign.right,
           style: TextStyle(fontWeight: FontWeight.bold),
-        ));
+        ),
+        onTap: () {
+          Navigator.of(context).pop();
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => RegisterPage()),
+          );
+        },
+      ),
+    );
   }
 
   Widget oDivider() {
@@ -79,13 +89,16 @@ class _LoginPageState extends State<LoginPage> {
     return Container(
         padding: const EdgeInsets.only(top: 28),
         child: RaisedButton(
-          color: Colors.pinkAccent,
-          textColor: Colors.white,
+            color: Colors.pinkAccent,
+            textColor: Colors.white,
             child: Row(
               children: <Widget>[
                 Icon(FontAwesomeIcons.facebookSquare),
                 Expanded(
-                  child: Text('Entrar con Facebook',textAlign: TextAlign.center,),
+                  child: Text(
+                    'Entrar con Facebook',
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ],
             ),
