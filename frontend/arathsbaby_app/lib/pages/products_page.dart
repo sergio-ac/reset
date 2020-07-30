@@ -17,7 +17,7 @@ class _ProductsPageState extends State<ProductsPage> {
             child: Container(
               height: 25.0,
               child: ListView(
-                scrollDirection: Axis.horizontal,
+                scrollDirection: Axis.horizontal,                  
                 children: <Widget>[
                   CategoryItemWidget(
                     name: "Accesorios",
@@ -38,27 +38,23 @@ class _ProductsPageState extends State<ProductsPage> {
           Container(
             height: 477.0,
             child: ListView(children: <Widget>[
+              
               PruebaItemWidget(
                 name: "Mochila",
                 price: "\$ 150",
                 imagePath: "assets/mochila.jpg",
-                description: "Mochila de mickey mouse",
-                color: "negro,rojo.blanco",
+                
               ),
               PruebaItemWidget(
                 name: "Mordedera",
                 price: "\$ 100",
                 imagePath: "assets/mordedera.jpg",
-                description:
-                    "Mordedera para bebe con mango de agarre especial y comodo para tu bebito xdxd",
-                color: "blanco,azul,rosa",
+                
               ),
               PruebaItemWidget(
                 name: "Sandalias",
                 price: "\$ 50",
                 imagePath: "assets/sandalias.jpg",
-                description: "Sandalias para dama",
-                color: "negro,blanco,rojo,azul",
               ),
             ]),
           ),
@@ -105,16 +101,14 @@ class PruebaItemWidget extends StatelessWidget {
   final String price;
   final String imagePath;
 
-  final String description;
-  final String color;
+ 
 
   const PruebaItemWidget(
       {Key key,
       this.name,
       this.price,
       this.imagePath,
-      this.description,
-      this.color})
+      })
       : super(key: key);
 
   Widget productImage() {
@@ -152,30 +146,9 @@ class PruebaItemWidget extends StatelessWidget {
     );
   }
 
-  Widget textDescription() {
-    return Container(
-      padding: const EdgeInsetsDirectional.only(bottom:10),
-      height: 60,
-      width: 60,
-      child: Text(
-        description,
-        style: TextStyle(
-          fontWeight: FontWeight.w300,
-        ),
-      ),
-    );
-  }
+  
 
-  Widget textColor() {
-    return Container(
-      child: Text(
-        "Color: $color",
-        style: TextStyle(
-          fontWeight: FontWeight.w300,
-        ),
-      ),
-    );
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -191,8 +164,7 @@ class PruebaItemWidget extends StatelessWidget {
               
               textName(),
               textPrice(),
-              textDescription(),
-              textColor(),
+              
             ],
           ),
         ],

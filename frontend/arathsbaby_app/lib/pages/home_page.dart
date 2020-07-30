@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './products_page.dart';
 import './user_page.dart';
 import './pruebas_page.dart';
+import 'grid_product.dart';
 
 class HomePage extends StatefulWidget {
     // This widget is the root of your application.
@@ -77,7 +78,7 @@ void switchUser(){
           ],
         ),
         ),
-      body:ProductsPage(),
+      body:GridProduct(),
        
     
     );

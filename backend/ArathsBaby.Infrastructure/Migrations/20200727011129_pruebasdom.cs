@@ -2,7 +2,7 @@
 
 namespace ArathsBaby.Infrastructure.Migrations
 {
-    public partial class InitialModel : Migration
+    public partial class pruebasdom : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,7 +17,8 @@ namespace ArathsBaby.Infrastructure.Migrations
                     Price = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     Photo = table.Column<string>(nullable: true),
-                    Quantity = table.Column<int>(nullable: false)
+                    Quantity = table.Column<int>(nullable: false),
+                    Color = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -32,9 +33,19 @@ namespace ArathsBaby.Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true),
-                    Phone = table.Column<string>(nullable: false),
-                    Direction = table.Column<string>(nullable: false)
+                    UserName = table.Column<string>(nullable: true),
+                    EmailAddress = table.Column<string>(nullable: false),
+                    Password = table.Column<string>(nullable: false),
+                    Phone = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(nullable: true),
+                    Colony = table.Column<string>(nullable: true),
+                    Street = table.Column<string>(nullable: true),
+                    OutsideNumber = table.Column<string>(nullable: true),
+                    InternalNumber = table.Column<string>(nullable: true),
+                    City = table.Column<string>(nullable: true),
+                    ZipCode = table.Column<string>(nullable: true),
+                    State = table.Column<string>(nullable: true),
+                    Country = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

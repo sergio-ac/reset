@@ -11,8 +11,9 @@ class _PruebasPageState extends State<PruebasPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-          title: new Text("Pruebas"), backgroundColor: Colors.pinkAccent,
-          ),
+        title: new Text("Pruebas"),
+        backgroundColor: Colors.pinkAccent,
+      ),
       body: Column(
         children: <Widget>[
           Padding(
@@ -40,30 +41,10 @@ class _PruebasPageState extends State<PruebasPage> {
           ),
           Container(
             height: 477.0,
-            child: ListView(children: <Widget>[
-              PruebaItemWidget(
-                imagePath: "assets/mochila.jpg",
-                name: "Mochila",
-                price: "\$ 150",
-                description: "Mochila de mickey mouse",
-                color: "negro,rojo.blanco",
+            child: GridView.count(
+                crossAxisCount: 3,
+                children: List.generate(30, (index) => null),
               ),
-              PruebaItemWidget(
-                imagePath: "assets/mordedera.jpg",
-                name: "Mordedera",
-                price: "\$ 100",
-                description:
-                    "Mordedera para bebe con mango de agarre especial y comodo para tu bebito xdxd",
-                color: "blanco,azul,rosa",
-              ),
-              PruebaItemWidget(
-                imagePath: "assets/sandalias.jpg",
-                name: "Sandalias",
-                price: "\$ 50",
-                description: "Sandalias para dama",
-                color: "negro,blanco,rojo,azul",
-              ),
-            ]),
           ),
         ],
       ),
