@@ -35,7 +35,7 @@ namespace ArathsBaby.WebAPI.Controllers
         return userItem;
     }
 
-    [HttpPost]
+    [HttpPost]    
     public async Task<ActionResult<User>> PostUserItem(User item){
     _context.User.Add(item);
     await _context.SaveChangesAsync();
@@ -51,16 +51,7 @@ namespace ArathsBaby.WebAPI.Controllers
         oUser.UserName=model.UserName;
         oUser.EmailAddress=model.EmailAddress;
         oUser.Password=model.Password;
-        oUser.Phone=model.Phone;
-        oUser.Address=model.Address;
-        oUser.Colony=model.Colony;
-        oUser.Street=model.Street;
-        oUser.OutsideNumber=model.OutsideNumber;
-        oUser.InternalNumber=model.InternalNumber;
-        oUser.City=model.City;
-        oUser.ZipCode=model.ZipCode;
-        oUser.State=model.State;
-        oUser.Country=model.Country;
+        oUser.Phone=model.Phone;  
         _context.User.Add(oUser);
         _context.SaveChanges();
 

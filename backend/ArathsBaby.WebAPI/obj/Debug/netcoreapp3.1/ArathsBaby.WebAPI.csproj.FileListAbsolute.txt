@@ -52,3 +52,5 @@ C:\xampp\htdocs\reset\backend\ArathsBaby.WebAPI\obj\Debug\netcoreapp3.1\ArathsBa
 C:\xampp\htdocs\reset\backend\ArathsBaby.WebAPI\obj\Debug\netcoreapp3.1\ArathsBaby.WebAPI.csproj.CopyComplete
 C:\xampp\htdocs\reset\backend\ArathsBaby.WebAPI\obj\Debug\netcoreapp3.1\ArathsBaby.WebAPI.dll
 C:\xampp\htdocs\reset\backend\ArathsBaby.WebAPI\obj\Debug\netcoreapp3.1\ArathsBaby.WebAPI.pdb
+C:\xampp\htdocs\reset\backend\ArathsBaby.WebAPI\obj\Debug\netcoreapp3.1\ArathsBaby.WebAPI.csproj.CoreCompileInputs.cache
+C:\xampp\htdocs\reset\backend\ArathsBaby.WebAPI\obj\Debug\netcoreapp3.1\ArathsBaby.WebAPI.genruntimeconfig.cache

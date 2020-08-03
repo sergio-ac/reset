@@ -2,7 +2,7 @@
 
 namespace ArathsBaby.Infrastructure.Migrations
 {
-    public partial class pruebasdom : Migration
+    public partial class cmbio : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -24,7 +24,7 @@ namespace ArathsBaby.Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_Product", x => x.Id);
                 });
-
+                
             migrationBuilder.CreateTable(
                 name: "User",
                 columns: table => new
@@ -36,16 +36,7 @@ namespace ArathsBaby.Infrastructure.Migrations
                     UserName = table.Column<string>(nullable: true),
                     EmailAddress = table.Column<string>(nullable: false),
                     Password = table.Column<string>(nullable: false),
-                    Phone = table.Column<string>(nullable: true),
-                    Address = table.Column<string>(nullable: true),
-                    Colony = table.Column<string>(nullable: true),
-                    Street = table.Column<string>(nullable: true),
-                    OutsideNumber = table.Column<string>(nullable: true),
-                    InternalNumber = table.Column<string>(nullable: true),
-                    City = table.Column<string>(nullable: true),
-                    ZipCode = table.Column<string>(nullable: true),
-                    State = table.Column<string>(nullable: true),
-                    Country = table.Column<string>(nullable: true)
+                    Phone = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

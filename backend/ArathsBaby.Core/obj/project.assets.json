@@ -284,11 +284,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\ArathsBaby.Core.csproj",
+      "projectUniqueName": "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\ArathsBaby.Core.csproj",
       "projectName": "ArathsBaby.Core",
-      "projectPath": "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\ArathsBaby.Core.csproj",
+      "projectPath": "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\ArathsBaby.Core.csproj",
       "packagesPath": "C:\\Users\\sergio\\.nuget\\packages\\",
-      "outputPath": "c:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\obj\\",
+      "outputPath": "C:\\xampp\\htdocs\\reset\\backend\\ArathsBaby.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sergio\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -336,7 +336,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }
