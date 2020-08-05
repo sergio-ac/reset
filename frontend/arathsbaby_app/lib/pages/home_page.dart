@@ -2,27 +2,17 @@ import 'package:arathsbaby_app/pages/product_gridview.dart';
 import 'package:flutter/material.dart';
 import './products_page.dart';
 import './user_page.dart';
-import './pruebas_page.dart';
-
-
-class HomePage extends StatefulWidget {
-    // This widget is the root of your application.
+class HomePage extends StatefulWidget { 
   @override
-  _HomePageState createState() => new _HomePageState();
-}
+  _HomePageState createState() => new _HomePageState();}
 class _HomePageState extends State<HomePage>{
-  String mainProfilePicture = "https://cdn3.vectorstock.com/i/1000x1000/30/97/flat-business-man-user-profile-avatar-icon-vector-4333097.jpg";
-String otherProfilePicture ="https://cdn2.vectorstock.com/i/1000x1000/41/11/flat-business-woman-user-profile-avatar-icon-vector-4334111.jpg";
-
-
-
+  String mainProfilePicture = "";
+String otherProfilePicture ="";
 void switchUser(){
   String backupString = mainProfilePicture;
   this.setState(() {
     mainProfilePicture = otherProfilePicture;
-    otherProfilePicture = backupString;
-  });
-}
+    otherProfilePicture = backupString;});}
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -40,51 +30,29 @@ void switchUser(){
                                 Navigator.of(context).push(new MaterialPageRoute(builder : (BuildContext context) => new UserPage("Usuario")));
                                 },
                               child: new CircleAvatar(
-                                backgroundImage: new NetworkImage (mainProfilePicture),
-                              ),
-                            ),
-                            
+                                backgroundImage: new NetworkImage (mainProfilePicture),),),                            
                             decoration: new BoxDecoration(
                               image : new DecorationImage(
                                 fit: BoxFit.fill,
-                                image: new NetworkImage("https://i.pinimg.com/originals/7b/40/40/7b4040ba378868e0594a1049ca4cae3b.jpg")
-                                )
-                            ),
-            ),
+                                image: new NetworkImage(""))),),
             new ListTile(
               title: new Text("Productos"),
               trailing: new Icon(Icons.view_list),
               onTap: () {
                 Navigator.of(context).pop();
-                 Navigator.of(context).push(new MaterialPageRoute(builder : (BuildContext context) => new ProductsPage()));
-              },
-              
-            ),
-           
+                 Navigator.of(context).push(new MaterialPageRoute(builder : (BuildContext context) => new ProductsPage()));},),           
             new ListTile(
               title: new Text("Pruebas"),
               trailing: new Icon(Icons.new_releases),
               onTap: () {
                  Navigator.of(context).pop();
-                 Navigator.of(context).push(new MaterialPageRoute(builder : (BuildContext context) => new PruebasPage()));
-              },
-            ),
-            
-            new Divider(),
+                 //Navigator.of(context).push(new MaterialPageRoute(builder : (BuildContext context) => new PruebasPage());
+                 },),new Divider(),
             new ListTile(
               title: new Text("Cerrar"),
               trailing: new Icon(Icons.cancel),
-              onTap: () => Navigator.of(context).pop(), 
-            ),
-          ],
-        ),
-        ),
-      body:ProductGrid(),
-       
-    
-    );
-  }
-}
+              onTap: () => Navigator.of(context).pop(),),],),),
+      body:ProductGrid(),);}}
 
 
   

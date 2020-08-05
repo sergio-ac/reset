@@ -2,36 +2,25 @@ import 'package:arathsbaby_app/models/productModel.dart';
 import 'package:arathsbaby_app/services/product_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-class ProductCellPage extends StatefulWidget{
-  
+class ProductCellPage extends StatefulWidget{  
   @override 
-  ProductCell createState()=>ProductCell();
-  
-
-}
-
+  ProductCell createState()=>ProductCell();}
 class ProductCell extends State<ProductCellPage>{
  // const ProductCell(this.product);
   @required
   ProductModel prod;
-
   final providerproducts = new ProductService();
-  @override
-  
-  void initState() {
-    
+  @override  
+  void initState() {    
     // TODO: implement initState
-    super.initState();
-  }
+    super.initState();}
   @override
   Widget build(BuildContext context){
     providerproducts.getProducts();
     prod = new ProductModel();
     return Card(
       shape:RoundedRectangleBorder(
-        borderRadius : BorderRadius.circular(10.0),
-      ),
+        borderRadius : BorderRadius.circular(10.0),),
       color:Colors.white,
       child:Padding(padding: EdgeInsets.all(10.0),
       child:Container(
@@ -51,12 +40,7 @@ class ProductCell extends State<ProductCellPage>{
                   placeholder: null, 
                   image: prod.photo,
                   width: 100,
-                  height: 100,
-                  ),
-                ),
-                
-              ),
-            ),
+                  height: 100,),),),),
             Padding (
               padding: EdgeInsets.all(10.0),
               child: Text(
@@ -66,15 +50,4 @@ class ProductCell extends State<ProductCellPage>{
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20.0,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-      )
-
-    );
-  }
-}
+                  fontWeight: FontWeight.w500,),),),],),),));}}

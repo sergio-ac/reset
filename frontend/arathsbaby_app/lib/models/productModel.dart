@@ -1,30 +1,13 @@
- import 'dart:convert';
-class Products{
-  
-  final List<ProductModel> products;
-  
-  Products({
-    
-    this.products
-    
-    });
-  
-  factory Products.fromJson(List<dynamic> parsedJson){
-    
-    List<ProductModel> _products = new List<ProductModel>();
-    
+class Products{  
+  final List<ProductModel> products;  
+  Products({    
+    this.products });  
+  factory Products.fromJson(List<dynamic> parsedJson){    
+    List<ProductModel> _products = new List<ProductModel>();    
     _products = parsedJson.map((e)=>ProductModel.fromJson(e)).toList();
    print ('Estoy aqui '+'$_products');
     return new Products(
-
-      products: _products,
-
-      );
-
-  }
-  }
-
-
+      products: _products,);}}
 class ProductModel {
   int id;
   String name;
@@ -34,7 +17,6 @@ class ProductModel {
   String photo;
   int quantity;
   String color;
-
   ProductModel({
      this.id,
       this.name,
@@ -43,12 +25,9 @@ class ProductModel {
       this.description,
       this.photo,
       this.quantity,
-      this.color
-      });
-
-  factory ProductModel.fromJson(Map<String, dynamic> json)=> new ProductModel(
-    
-
+      this.color});
+  factory ProductModel.fromJson(Map<String, dynamic> json)=> 
+  new ProductModel(
     id            :     json["id"] ,
     name          :     json["name"],
     category      :     json["category"] ,
@@ -58,10 +37,7 @@ class ProductModel {
     quantity      :     json["quantity"],
     color         :     json["color"],
     );
-  
-
-  Map<String, dynamic> toJson()=> {
-    
+  Map<String, dynamic> toJson()=> {    
     "id"            : id,
     "name"          : name,
     "category"      : category,
@@ -70,6 +46,8 @@ class ProductModel {
     "photo"         : photo,
     "quantity"      : quantity,
     "color"         : color,
+    };}
+
+
+
     
-  };
-}
