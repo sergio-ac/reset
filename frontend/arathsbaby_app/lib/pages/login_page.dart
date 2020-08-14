@@ -1,25 +1,45 @@
 import 'package:arathsbaby_app/pages/home_page.dart';
-import 'package:arathsbaby_app/pages/register_page.dart';
+
+import "package:flutter_facebook_login/flutter_facebook_login.dart";
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 class LoginPage extends StatefulWidget {
+ 
   @override
   _LoginPageState createState() => _LoginPageState();}
+
+
+  
+  
 class _LoginPageState extends State<LoginPage> {
+   bool isLoggedIn=false;
+  void initiateFacebookLogin() async {
+    var login = FacebookLogin();
+    var result = await login.logInWithReadPermissions(['email']);
+
+    switch(result.status){
+      case FacebookLoginStatus.error:
+      print("Surgio un error");
+      break;
+      case FacebookLoginStatus.cancelledByUser:
+      print("Cancelada por el Usuario");
+      break;
+      case FacebookLoginStatus.loggedIn:
+      onLoginStatusChange(true);
+      break;
+
+    }
+  }
+
+  void onLoginStatusChange(bool isLoggedIn){
+    setState((){
+      this.isLoggedIn=isLoggedIn;
+    });}
   Future btloginres(context) async {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => HomePage()));}
-  Widget inputEmail() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 22),
-      child: TextFormField(
-        decoration: InputDecoration(hintText: 'Correo electrónico'),),);}
-  Widget inputPassword() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 22),
-      child: TextFormField(
-        decoration: InputDecoration(hintText: 'Contraseña'),
-        obscureText: true,),);}
+  
   Widget buttonLogin() {
     return Container(
       padding: const EdgeInsets.only(top: 32),
@@ -28,32 +48,9 @@ class _LoginPageState extends State<LoginPage> {
         textColor: Colors.white,
         child: Text('Entrar'),
         onPressed: () {
-          Navigator.pushReplacementNamed(context, 'homePage');},),);}
-  Widget linkRegister() {
-    return Container(
-      padding: const EdgeInsets.only(top: 32),
-      child: InkWell(
-        child: Text(
-          'Crear una cuenta',
-          textAlign: TextAlign.right,
-          style: TextStyle(fontWeight: FontWeight.bold),),
-        onTap: () {
-          Navigator.of(context).pop();
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => RegisterPage()),);},),);}
-  Widget oDivider() {
-    return Container(
-        padding: const EdgeInsets.only(top: 28),
-        child: Row(
-          children: <Widget>[
-            Expanded(
-                child: Divider(
-              height: 1,)),
-            Text('O'),
-            Expanded(
-                child: Divider(
-              height: 1,)),],));}
+          Navigator.pushReplacementNamed(context, 'main');},),);}
+  
+  
   Widget buttonFacebook() {
     return Container(
         padding: const EdgeInsets.only(top: 28),
@@ -61,13 +58,16 @@ class _LoginPageState extends State<LoginPage> {
             color: Colors.pinkAccent,
             textColor: Colors.white,
             child: Row(
+
               children: <Widget>[
-                Icon(FontAwesomeIcons.facebookSquare),
+                isLoggedIn?Text("Bienvenido"):Icon(FontAwesomeIcons.facebookSquare),
                 Expanded(
                   child: Text(
                     'Entrar con Facebook',
                     textAlign: TextAlign.center,),),],),
-            onPressed: () {}));}
+            onPressed: () => initiateFacebookLogin())
+            );
+            }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,12 +76,11 @@ class _LoginPageState extends State<LoginPage> {
         decoration: BoxDecoration(color: Colors.white),
         child: ListView(
           children: <Widget>[
+            SizedBox(height: 35.0),
             Image.asset(
-              'assets/arathslogo.jpg',
+              'assets/logo.png',
               height: 170,),
-            inputEmail(),
-            inputPassword(),
+            
             buttonLogin(),
-            linkRegister(),
-            oDivider(),
+            
             buttonFacebook(),],),),);}}

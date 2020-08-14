@@ -1,14 +1,18 @@
-class Products{  
-  final List<ProductModel> products;  
-  Products({    
-    this.products });  
-  factory Products.fromJson(List<dynamic> parsedJson){    
-    List<ProductModel> _products = new List<ProductModel>();    
-    _products = parsedJson.map((e)=>ProductModel.fromJson(e)).toList();
-   print ('Estoy aqui '+'$_products');
-    return new Products(
-      products: _products,);}}
-class ProductModel {
+class Products {
+  final List<Product> products;
+
+  Products({
+    this.products,
+  });
+
+  factory Products.fromJsonList(List<dynamic> parsedJson) {
+    List<Product> products = new List<Product>();
+    products = parsedJson.map((i) => Product.fromJson(i)).toList();
+    return new Products(products: products);
+  }
+}
+
+class Product {
   int id;
   String name;
   String category;
@@ -17,8 +21,9 @@ class ProductModel {
   String photo;
   int quantity;
   String color;
-  ProductModel({
-     this.id,
+
+  Product(
+      {this.id,
       this.name,
       this.category,
       this.price,
@@ -26,28 +31,17 @@ class ProductModel {
       this.photo,
       this.quantity,
       this.color});
-  factory ProductModel.fromJson(Map<String, dynamic> json)=> 
-  new ProductModel(
-    id            :     json["id"] ,
-    name          :     json["name"],
-    category      :     json["category"] ,
-    price         :     json["price"],
-    description   :     json["description"],
-    photo         :     json["photo"],
-    quantity      :     json["quantity"],
-    color         :     json["color"],
+
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+    id : json['id'] as int,
+    name : json['name'] as String,
+    category : json['category'] as String,
+    price : json['price']as int,
+    description : json['description']as String,
+    photo : json['photo']as String,
+    quantity : json['quantity']as int,
+    color : json['color']as String,
     );
-  Map<String, dynamic> toJson()=> {    
-    "id"            : id,
-    "name"          : name,
-    "category"      : category,
-    "price"         : price,
-    "description"   : description,
-    "photo"         : photo,
-    "quantity"      : quantity,
-    "color"         : color,
-    };}
-
-
-
-    
+  }
+}
