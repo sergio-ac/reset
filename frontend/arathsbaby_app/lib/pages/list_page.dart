@@ -1,11 +1,11 @@
 import 'package:arathsbaby_app/models/productModel.dart';
-
 import 'package:fancy_dialog/FancyAnimation.dart';
 import 'package:fancy_dialog/FancyGif.dart';
 import 'package:fancy_dialog/FancyTheme.dart';
 import 'package:fancy_dialog/fancy_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Cart extends StatefulWidget {
   final List<Product> _cart;
@@ -244,7 +244,9 @@ class _CartState extends State<Cart> {
                               theme: FancyTheme.FANCY,
                               gifPath:
                                   FancyGif.MOVE_FORWARD, //'./assets/walp.png',
-                              okFun: () => {print("it's working :)")},
+                              okFun: () => {
+                                msgListaPedido(),
+                              },
                             ))
                   },
                   shape: new RoundedRectangleBorder(
@@ -267,5 +269,33 @@ class _CartState extends State<Cart> {
     setState(() {
       _cart[index].elected--;
     });
+  }
+
+  void msgListaPedido() async {
+    String pedido = "";
+    String fecha = DateTime.now().toString();
+    pedido = pedido + "Fecha:" + fecha.toString();
+    pedido = pedido + "\n";
+    pedido = pedido + "Cliente: Flutter Dart";
+    pedido = pedido + "\n";
+    pedido = pedido + "______________________";
+    for (int i = 0; i < _cart.length; i++) {
+      pedido = '$pedido' +
+          "\n" +
+          "Producto : " +
+          _cart[i].name +
+          "\n" +
+          "Cantidad: " +
+          "\n" +
+          _cart[i].elected.toString() +
+          "\n" +
+          "Precio: " +
+          _cart[i].price.toString() +
+          "\n" +
+          "\_____________________________\n";
+    }
+    pedido = pedido + "Total: " + valorTotal(_cart);
+
+    await launch("https://wa.me/\$(+528127256525)?text=$pedido");
   }
 }

@@ -1,10 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:arathsbaby_app/models/productModel.dart';
-import 'package:arathsbaby_app/pages/products_page.dart';
 import 'package:arathsbaby_app/pages/user_page.dart';
 import 'package:flutter/material.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 import 'detail_product.dart';
 import 'list_page.dart';
 
@@ -56,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     appBar: new AppBar(
+      appBar: new AppBar(
         title: new Text("Araths Baby"),
         actions: <Widget>[
           Padding(
@@ -104,8 +103,14 @@ class _MyHomePageState extends State<MyHomePage> {
           child: new ListView(
             children: <Widget>[
               new UserAccountsDrawerHeader(
-                accountName: new Text("Sergio Alejo"),
-                accountEmail: new Text("s@gmail.com"),
+                accountName: new Text(
+                  "Sergio Alejo",
+                  style: TextStyle(color: Colors.black),
+                ),
+                accountEmail: new Text(
+                  "sergio-alejo@outlook.es",
+                  style: TextStyle(color: Colors.black),
+                ),
                 currentAccountPicture: new GestureDetector(
                   onTap: () {
                     Navigator.of(context).pop();
@@ -123,20 +128,19 @@ class _MyHomePageState extends State<MyHomePage> {
                         image: AssetImage("assets/logo.png"))),
               ),
               new ListTile(
-                title: new Text("Productos"),
+                title: new Text("Principal"),
                 trailing: new Icon(Icons.view_list),
                 onTap: () {
                   Navigator.of(context).pop();
                   Navigator.of(context).push(new MaterialPageRoute(
-                      builder: (BuildContext context) => new ProductsPage()));
+                      builder: (BuildContext context) => new MyHomePage()));
                 },
               ),
               new ListTile(
-                title: new Text("Pruebas"),
-                trailing: new Icon(Icons.new_releases),
+                title: new Text("Local"),
+                trailing: new Icon(Icons.location_on),
                 onTap: () {
-                  Navigator.of(context).pop();
-                  //Navigator.of(context).push(new MaterialPageRoute(builder : (BuildContext context) => new PruebasPage());
+                  launch("https://goo.gl/maps/u26ZMg4uxitUGzMU6");
                 },
               ),
               new Divider(),
@@ -181,18 +185,21 @@ class _MyHomePageState extends State<MyHomePage> {
                         style: TextStyle(
                             fontSize: 20.0, fontWeight: FontWeight.bold),
                       ),
-                      
-                      SizedBox(height: 5,),
+                      SizedBox(
+                        height: 5,
+                      ),
                       Row(
                         children: <Widget>[
-                          SizedBox(width:20),
+                          SizedBox(width: 20),
                           Text(
                             "\$ ${item.price}",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 20.0, fontWeight: FontWeight.bold),
                           ),
-                          SizedBox(width: 60,),
+                          SizedBox(
+                            width: 60,
+                          ),
                           Padding(
                             padding: const EdgeInsets.only(
                               right: 8.0,

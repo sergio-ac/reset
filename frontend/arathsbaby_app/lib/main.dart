@@ -1,7 +1,5 @@
 import 'package:arathsbaby_app/pages/principal_page.dart';
-import 'package:arathsbaby_app/pages/home_page.dart';
 import 'package:arathsbaby_app/pages/login_page.dart';
-
 import 'package:flutter/material.dart';
 import './pages/login_page.dart';
 
@@ -10,7 +8,6 @@ void main() {
       debugShowCheckedModeBanner: false,
       routes: {
         'main': (context) => MyHomePage(),
-        'mainhome': (context) => HomePage(),
       },
       home: new LoginPage()));
 }
