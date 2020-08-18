@@ -25,6 +25,44 @@ class _HomePageState extends State<HomePage> {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("Araths Baby"),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0, top: 8.0),
+            child: GestureDetector(
+              child: Stack(
+                alignment: Alignment.topCenter,
+                children: <Widget>[
+                  Icon(
+                    Icons.shopping_cart,
+                    size: 38,
+                  ),
+                  /*if (_listaCarro.length > 0)
+                    Padding(
+                      padding: const EdgeInsets.only(left: 2.0),
+                      child: CircleAvatar(
+                        radius: 8.0,
+                        backgroundColor: Colors.red,
+                        foregroundColor: Colors.white,
+                        child: Text(
+                          //_listaCarro.length.toString(),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 12.0),
+                        ),
+                      ),
+                    ),*/
+                ],
+              ),
+              onTap: () {
+               /* if (_listaCarro.isNotEmpty)
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Cart(_listaCarro),
+                    ),
+                  );*/
+              },
+            ),
+          )
+        ],
         backgroundColor: Colors.pinkAccent,
       ),
       endDrawer: new Drawer(

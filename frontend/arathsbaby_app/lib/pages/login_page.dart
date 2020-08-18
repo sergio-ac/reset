@@ -1,4 +1,5 @@
 import 'package:arathsbaby_app/pages/home_page.dart';
+import 'package:arathsbaby_app/pages/principal_page.dart';
 
 import "package:flutter_facebook_login/flutter_facebook_login.dart";
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class LoginPage extends StatefulWidget {
   
 class _LoginPageState extends State<LoginPage> {
    bool isLoggedIn=false;
+
   void initiateFacebookLogin() async {
     var login = FacebookLogin();
     var result = await login.logInWithReadPermissions(['email']);
@@ -35,10 +37,14 @@ class _LoginPageState extends State<LoginPage> {
   void onLoginStatusChange(bool isLoggedIn){
     setState((){
       this.isLoggedIn=isLoggedIn;
+      if (isLoggedIn = true){
+        Navigator.pushReplacementNamed(context, 'main');
+      }
     });}
   Future btloginres(context) async {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => HomePage()));}
+   // Navigator.push(context, MaterialPageRoute(builder: (context) =>()));
+     Navigator.pushReplacementNamed(context, 'main');
+        }
   
   Widget buttonLogin() {
     return Container(
@@ -60,7 +66,9 @@ class _LoginPageState extends State<LoginPage> {
             child: Row(
 
               children: <Widget>[
-                isLoggedIn?Text("Bienvenido"):Icon(FontAwesomeIcons.facebookSquare),
+                //isLoggedIn?Navigator.pushReplacementNamed(context, 'main'):
+                
+                Icon(FontAwesomeIcons.facebookSquare),
                 Expanded(
                   child: Text(
                     'Entrar con Facebook',

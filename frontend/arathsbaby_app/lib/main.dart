@@ -9,8 +9,8 @@ void main() {
   runApp(new MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        'homePage': (context) => MyHomePage(),
-        'main': (context) => HomePage(),
+        'main': (context) => MyHomePage(),
+        'mainhome': (context) => HomePage(),
       },
       home: new LoginPage()));
 }

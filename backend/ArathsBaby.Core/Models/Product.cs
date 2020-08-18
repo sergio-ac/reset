@@ -16,5 +16,6 @@ namespace ArathsBaby.Core.Models
         public string Photo {get;set;}
         public int Quantity {get;set;}
         public string Color {get;set;}        
+        public int Elected {get;set;}
     }
 }

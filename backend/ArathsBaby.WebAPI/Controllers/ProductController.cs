@@ -47,6 +47,7 @@ namespace ArathsBaby.WebAPI.Controllers
            pr.Photo = filePath;
            pr.Quantity=model.Quantity;
            pr.Color=model.Color;
+           pr.Elected=0;
            _context.Add(pr);
            await _context.SaveChangesAsync();
            return Ok();

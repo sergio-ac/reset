@@ -1,9 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:arathsbaby_app/models/productModel.dart';
+import 'package:arathsbaby_app/pages/products_page.dart';
+import 'package:arathsbaby_app/pages/user_page.dart';
 import 'package:flutter/material.dart';
 
 import 'detail_product.dart';
+import 'list_page.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -41,6 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ));
   }
 
+  List<Product> _listaCarro = List<Product>();
   List<Product> _productosModel = List<Product>();
   @override
   void initState() {
@@ -52,49 +56,99 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*drawer: Container(
-        
-        width: 170.0,
-        child: Drawer(
-          child: Container(
-            width: MediaQuery.of(context).size.width * 0.75,
-            color: Colors.pink[50],
-            child: new ListView(
-              padding: EdgeInsets.only(top: 50.0),
-              children: <Widget>[
-                Container(
-                  height: 120,
-                  child: new UserAccountsDrawerHeader(
-                    accountName: new Text(''),
-                    accountEmail: new Text(''),
-                    decoration: new BoxDecoration(
-                      image: new DecorationImage(
-                        fit: BoxFit.fill,
-                        image: AssetImage('assets/logo.png'),
+     appBar: new AppBar(
+        title: new Text("Araths Baby"),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0, top: 8.0),
+            child: GestureDetector(
+              child: Stack(
+                alignment: Alignment.topCenter,
+                children: <Widget>[
+                  Icon(
+                    Icons.shopping_cart,
+                    size: 38,
+                  ),
+                  if (_listaCarro.length > 0)
+                    Padding(
+                      padding: const EdgeInsets.only(left: 2.0),
+                      child: CircleAvatar(
+                        radius: 8.0,
+                        backgroundColor: Colors.red,
+                        foregroundColor: Colors.white,
+                        child: Text(
+                          _listaCarro.length.toString(),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 12.0),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-                new Divider(),
-                new ListTile(
-                  title: new Text(
-                    'Home',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  trailing: new Icon(
-                    Icons.home,
-                    size: 30.0,
-                    color: Colors.black,
-                  ),
-                  onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                    builder: (BuildContext context) => MyHomePage(),
-                  )),
-                ),
-              ],
+                ],
+              ),
+              onTap: () {
+                if (_listaCarro.isNotEmpty)
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Cart(_listaCarro),
+                    ),
+                  );
+              },
             ),
+          )
+        ],
+        backgroundColor: Colors.pinkAccent,
+      ),
+      drawer: new Drawer(
+        child: Container(
+          color: Colors.pinkAccent[50],
+          child: new ListView(
+            children: <Widget>[
+              new UserAccountsDrawerHeader(
+                accountName: new Text("Sergio Alejo"),
+                accountEmail: new Text("s@gmail.com"),
+                currentAccountPicture: new GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(new MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            new UserPage("Usuario")));
+                  },
+                  child: new CircleAvatar(
+                    backgroundImage: AssetImage("assets/user.jpg"),
+                  ),
+                ),
+                decoration: new BoxDecoration(
+                    image: new DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage("assets/logo.png"))),
+              ),
+              new ListTile(
+                title: new Text("Productos"),
+                trailing: new Icon(Icons.view_list),
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).push(new MaterialPageRoute(
+                      builder: (BuildContext context) => new ProductsPage()));
+                },
+              ),
+              new ListTile(
+                title: new Text("Pruebas"),
+                trailing: new Icon(Icons.new_releases),
+                onTap: () {
+                  Navigator.of(context).pop();
+                  //Navigator.of(context).push(new MaterialPageRoute(builder : (BuildContext context) => new PruebasPage());
+                },
+              ),
+              new Divider(),
+              new ListTile(
+                title: new Text("Cerrar"),
+                trailing: new Icon(Icons.cancel),
+                onTap: () => Navigator.of(context).pop(),
+              ),
+            ],
           ),
         ),
-      ),*/
+      ),
       body: _cuadroProductos(),
     );
   }
@@ -127,15 +181,50 @@ class _MyHomePageState extends State<MyHomePage> {
                         style: TextStyle(
                             fontSize: 20.0, fontWeight: FontWeight.bold),
                       ),
-                      Divider(
-                        height: 5.0,
-                      ),
-                      Text(
-                        "\$ ${item.price}",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 20.0, fontWeight: FontWeight.bold),
-                      ),
+                      
+                      SizedBox(height: 5,),
+                      Row(
+                        children: <Widget>[
+                          SizedBox(width:20),
+                          Text(
+                            "\$ ${item.price}",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 20.0, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(width: 60,),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              right: 8.0,
+                              bottom: 8.0,
+                            ),
+                            child: Align(
+                              alignment: Alignment.bottomRight,
+                              child: GestureDetector(
+                                child: (!_listaCarro.contains(item))
+                                    ? Icon(
+                                        Icons.shopping_cart,
+                                        color: Colors.green,
+                                        size: 38,
+                                      )
+                                    : Icon(
+                                        Icons.shopping_cart,
+                                        color: Colors.red,
+                                        size: 38,
+                                      ),
+                                onTap: () {
+                                  setState(() {
+                                    if (!_listaCarro.contains(item))
+                                      _listaCarro.add(item);
+                                    else
+                                      _listaCarro.remove(item);
+                                  });
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                   onTap: () {

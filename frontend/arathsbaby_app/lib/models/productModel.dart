@@ -21,6 +21,7 @@ class Product {
   String photo;
   int quantity;
   String color;
+  int elected;
 
   Product(
       {this.id,
@@ -30,7 +31,8 @@ class Product {
       this.description,
       this.photo,
       this.quantity,
-      this.color});
+      this.color,
+      this.elected});
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
@@ -42,6 +44,7 @@ class Product {
     photo : json['photo']as String,
     quantity : json['quantity']as int,
     color : json['color']as String,
+    elected : json['elected'] as int,
     );
   }
 }

@@ -2,7 +2,7 @@
 
 namespace ArathsBaby.Infrastructure.Migrations
 {
-    public partial class cmbio : Migration
+    public partial class InitialModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,13 +18,14 @@ namespace ArathsBaby.Infrastructure.Migrations
                     Description = table.Column<string>(nullable: true),
                     Photo = table.Column<string>(nullable: true),
                     Quantity = table.Column<int>(nullable: false),
-                    Color = table.Column<string>(nullable: true)
+                    Color = table.Column<string>(nullable: true),
+                    Elected = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Product", x => x.Id);
                 });
-                
+
             migrationBuilder.CreateTable(
                 name: "User",
                 columns: table => new

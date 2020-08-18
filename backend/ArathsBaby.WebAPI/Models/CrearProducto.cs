@@ -11,7 +11,7 @@ namespace ArathsBaby.WebAPI.Models
         public IFormFile File {get;set;}
         public int Quantity {get;set;}
         public string Color {get;set;}
+        public int Elected {get;set;}
     }
 }
-
 
